@@ -6,16 +6,16 @@ import 'debate_entity.dart'; // Import your debate model
 class DebateDetailsPage extends StatelessWidget {
   final Debate debate;
 
-  DebateDetailsPage({required this.debate});
+  const DebateDetailsPage({super.key, required this.debate});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Debate Details'),
+        title: const Text('Debate Details'),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -24,8 +24,8 @@ class DebateDetailsPage extends StatelessWidget {
             Text('User B: ${debate.userB}'),
             // Display other debate information as needed
 
-            SizedBox(height: 16.0),
-            Text(
+            const SizedBox(height: 16.0),
+            const Text(
               'Rebuttals:',
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
@@ -45,11 +45,14 @@ class DebateDetailsPage extends StatelessWidget {
 class RebuttalTile extends StatelessWidget {
   final Rebuttal rebuttal;
 
-  RebuttalTile({required this.rebuttal});
+  const RebuttalTile({super.key, required this.rebuttal});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: (() {
+        //when a user who is not userA or userB taps on this tile, they can tag the
+      }),
       title: Text(rebuttal.text),
       subtitle: Text('User: ${rebuttal.userId}'),
       // Display other rebuttal information as needed

@@ -6,6 +6,8 @@ import 'debate_entity.dart';
 import 'debate_provider.dart';
 
 class CreateDebatePage extends StatefulWidget {
+  const CreateDebatePage({super.key});
+
   @override
   _CreateDebatePageState createState() => _CreateDebatePageState();
 }

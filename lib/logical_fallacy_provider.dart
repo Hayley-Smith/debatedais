@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'logical_fallacy_entity.dart';
 
 class LogicalFallacyProvider extends ChangeNotifier {
-  List<LogicalFallacy> _fallacies = []; // List of logical fallacies
+  final List<LogicalFallacy> _fallacies = []; // List of logical fallacies
 
   // Getter for the list of logical fallacies
   List<LogicalFallacy> get fallacies => _fallacies;
