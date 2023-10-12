@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "363562232546",
+    "project_id": "debatedais-20b7f",
+    "storage_bucket": "debatedais-20b7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363562232546:android:da4cb0b31faf0f0d050cbb",
+        "android_client_info": {
+          "package_name": "com.debatedais.debatedais"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUABv1O2xzVX1_YK3SdFVDPyCpewIKjwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
