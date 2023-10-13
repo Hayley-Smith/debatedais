@@ -53,6 +53,7 @@ class _CreateDebatePageState extends State<CreateDebatePage> {
               onPressed: () {
                 // Create a Debate object with the provided data
                 Debate debate = Debate(
+                  debateId: 'sampleid',
                   userA: currentUserId ?? 'n/a',
                   userB: '', // You can leave userB empty initially
                   thesisStatement: _thesisStatementController.text,

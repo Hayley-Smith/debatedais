@@ -2,7 +2,7 @@ import 'package:debatedais/rebuttal_entity.dart';
 import 'package:flutter/foundation.dart';
 
 class RebuttalProvider extends ChangeNotifier {
-  List<Rebuttal> _rebuttals = []; // List of rebuttals
+  final List<Rebuttal> _rebuttals = []; // List of rebuttals
 
   // Getter for the list of rebuttals
   List<Rebuttal> get rebuttals => _rebuttals;

@@ -6,6 +6,8 @@ import 'debate_entity.dart'; // Import your debate model
 import 'debate_provider.dart'; // Import your debate provider
 
 class DebateListPage extends StatelessWidget {
+  const DebateListPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     List<Debate> debates = Provider.of<DebateProvider>(context).debates;
@@ -29,7 +31,8 @@ class DebateListPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DebateDetailsPage(debate: debate),
+                        builder: (context) =>
+                            DebateDetailsPage(debateId: debate.debateId),
                       ),
                     );
                   },

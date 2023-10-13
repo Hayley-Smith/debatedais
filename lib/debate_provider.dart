@@ -6,6 +6,7 @@ import 'debate_entity.dart';
 class DebateProvider extends ChangeNotifier {
   final List<Debate> _debates = [
     Debate(
+      debateId: 'sample debateID',
       userA: 'User1',
       userB: 'User2',
       thesisStatement: 'Should smartphones be allowed in schools?',
@@ -61,5 +62,43 @@ class DebateProvider extends ChangeNotifier {
   void addDebate(Debate newDebate) {
     _debates.add(newDebate);
     notifyListeners();
+  }
+
+  //Setter to add a rebuttal to current debate
+  void addRebuttal(Rebuttal newRebuttal, String debateId) {
+    //add rebuttal to debate where debateId = debateId
+  }
+
+// Method to add a rebuttal to a specific debate based on debateId
+  void addRebuttalToDebate(
+    String debateId,
+    Rebuttal rebuttal,
+  ) {
+    // Find the debate with the given debateId
+    Debate? targetDebate = debates.firstWhere(
+      (debate) => debate.debateId == debateId,
+    );
+
+    // Add the rebuttal to the list of rebuttals in the target debate
+    targetDebate.rebuttals.add(rebuttal);
+  }
+
+  // Method to get a debate by its ID
+  Debate getDebateById(String debateId) {
+    return _debates.firstWhere(
+      (debate) => debate.debateId == debateId,
+      orElse: () => Debate(
+        // Return a default or empty debate if not found
+        debateId: '', // Replace with the appropriate default values
+        thesisStatement: '',
+        userA: '',
+        userB: '',
+        openingStatement1: '',
+        openingStatement2: '',
+        rebuttals: [],
+        isThesisConfirmed: false,
+        isUserATurn: true,
+      ),
+    );
   }
 }
