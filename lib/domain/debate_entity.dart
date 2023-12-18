@@ -1,4 +1,4 @@
-import 'argument.dart';
+import 'argument_entity.dart';
 
 class Debate {
   final String debateId;

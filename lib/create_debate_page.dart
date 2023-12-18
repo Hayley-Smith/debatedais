@@ -2,9 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart'; // Import Provider
 
-import 'argument.dart';
-import 'debate_entity.dart';
-import 'debate_provider.dart';
+import 'domain/argument_entity.dart';
+import 'domain/debate_entity.dart';
+import 'state/debate_provider.dart';
 
 class CreateDebatePage extends StatefulWidget {
   const CreateDebatePage({super.key});
@@ -53,7 +53,7 @@ class _CreateDebatePageState extends State<CreateDebatePage> {
             ElevatedButton(
               onPressed: () {
                 //TODO: finish filling out this debate object
-              var debate =  Debate(
+                var debate = Debate(
                   debateId: 'debateId',
                   userIdPro: 'userIdPro',
                   userIdCon: 'userIdCon',
@@ -63,36 +63,42 @@ class _CreateDebatePageState extends State<CreateDebatePage> {
                     timeStamp: DateTime.now(),
                     argumentId: 'sampleargumentid1',
                     userId: 'sampleuserid11',
+                    sources: [],
                   ),
                   argumentFor2: Argument(
                     text: 'sampleargumenttext2',
                     timeStamp: DateTime.now(),
                     argumentId: 'sampleargumentid',
                     userId: 'sampleuserid12',
+                    sources: [],
                   ),
                   argumentFor3: Argument(
                     text: 'sampleargumenttext3',
                     timeStamp: DateTime.now(),
                     argumentId: 'sampleargumentid3',
                     userId: 'sampleuserid13',
+                    sources: [],
                   ),
                   argumentAgainst1: Argument(
                     text: 'sampleargumenttext4',
                     timeStamp: DateTime.now(),
                     argumentId: 'sampleargumentid4',
                     userId: 'sampleuserid14',
+                    sources: [],
                   ),
                   argumentAgainst2: Argument(
                     text: 'sampleargumenttext5',
                     timeStamp: DateTime.now(),
                     argumentId: 'sampleargumentid5',
                     userId: 'sampleuserid15',
+                    sources: [],
                   ),
                   argumentAgainst3: Argument(
                     text: 'sampleargumenttext6',
                     timeStamp: DateTime.now(),
                     argumentId: 'sampleargumentid6',
                     userId: 'sampleuserid16',
+                    sources: [],
                   ),
                   isCompleted: false,
                 );

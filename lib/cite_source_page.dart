@@ -10,8 +10,9 @@ class CiteSourcePage extends StatefulWidget {
 class _CiteSourcePageState extends State<CiteSourcePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      appBar: AppBar(),
+      body: const Center(
         child: Text("Cite Source Page"),
       ),
     );

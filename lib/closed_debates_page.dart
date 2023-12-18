@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart'; // Import Provider
+import 'package:provider/provider.dart';
 
 import 'debate_details_page.dart';
-import 'debate_entity.dart'; // Import your debate model
-import 'debate_provider.dart'; // Import your debate provider
+import 'domain/debate_entity.dart';
+import 'state/debate_provider.dart';
 
 class ClosedDebatesPage extends StatelessWidget {
   const ClosedDebatesPage({super.key});
@@ -25,14 +25,19 @@ class ClosedDebatesPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 Debate debate = debates[index];
                 return ListTile(
-                  title: Text('Thesis: {debate.thesisStatement}'),
-                  subtitle: Text('User A: {debate.userA}'),
+                  title: Text(
+                    'Thesis: ${debate.proStatement}',
+                  ),
+                  subtitle: Text(
+                    'User A: ${debate.userIdPro}',
+                  ),
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            DebateDetailsPage(debateId: debate.debateId),
+                        builder: (context) => DebateDetailsPage(
+                          debateId: debate.debateId,
+                        ),
                       ),
                     );
                   },

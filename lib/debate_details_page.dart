@@ -1,8 +1,8 @@
-import 'package:debatedais/debate_provider.dart';
+import 'package:debatedais/state/debate_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'debate_entity.dart'; // Import your debate model
+import 'domain/debate_entity.dart'; // Import your debate model
 
 class DebateDetailsPage extends StatefulWidget {
   final String debateId;
@@ -20,52 +20,97 @@ class _DebateDetailsPageState extends State<DebateDetailsPage> {
         widget.debateId); // Implement this method in your provider
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Debate Details'),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.plus_one,
-            ),
-            onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => RebuttalInputPage(
-              //       debateId: debate.debateId,
-              //     ),
-              //   ),
-              // );
-            },
-          ),
-        ],
-      ),
-      body: const SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+      appBar: AppBar(),
+      body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text('Thesis Statement: {debate.thesisStatement}'),
-            Text('User A: {debate.userA}'),
-            Text('User B: {debate.userB}'),
-            // Display other debate information as needed
-            SizedBox(height: 16.0),
-            Text(
-              'Rebuttals:',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * .2,
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    debate!.proStatement,
+                    style: Theme.of(context).textTheme.headlineLarge,
+                    softWrap: true,
+                  ),
+                ),
+              ),
             ),
-            // Display a list of rebuttals ordered by timestamp
-            // Column(
-            //   children: debate.rebuttals
-            //       .map((rebuttal) => RebuttalTile(rebuttal: rebuttal))
-            //       .toList(),
-            // ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(
+                Icons.person_add_rounded,
+                size: 36,
+              ),
+              title: Text(debate.argumentFor1.text),
+              tileColor: Colors.deepPurple[100],
+            ),
+            const Divider(),
+            ListTile(
+              trailing: const Icon(
+                Icons.person_remove_rounded,
+                size: 36,
+
+              ),
+              title: Text(
+                debate.argumentAgainst1.text,
+              ),
+              tileColor: Colors.deepPurple[200],
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(
+                Icons.person_add_rounded,
+                size: 36,
+
+              ),
+              title: Text(
+                debate.argumentFor2.text,
+              ),
+              tileColor: Colors.deepPurple[100],
+            ),
+            const Divider(),
+            ListTile(
+              trailing: const Icon(
+                Icons.person_remove_rounded,
+                size: 36,
+
+              ),
+              title: Text(
+                debate.argumentAgainst2.text,
+              ),
+              tileColor: Colors.deepPurple[200],
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(
+                Icons.person_add_rounded,
+                size: 36,
+
+              ),
+              title: Text(
+                debate.argumentFor3.text,
+              ),
+              tileColor: Colors.deepPurple[100],
+            ),
+            const Divider(),
+            Card(
+              child: ListTile(
+                trailing: const Icon(
+                  Icons.person_remove_rounded,
+                  size: 36,
+
+                ),
+                tileColor: Colors.deepPurple[200],
+                title: Text(
+                  debate.argumentAgainst3.text,
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-
-

@@ -10,6 +10,11 @@ class OpenDebatesPage extends StatefulWidget {
 class _OpenDebatesPageState extends State<OpenDebatesPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text("Open Debates Page"),),);
+    return Scaffold(
+      appBar: AppBar(),
+      body: const Center(
+        child: Text("Open Debates Page"),
+      ),
+    );
   }
 }

@@ -1,9 +1,8 @@
-import 'dart:js_interop';
 
 import 'package:flutter/foundation.dart';
 
-import 'argument.dart';
-import 'debate_entity.dart';
+import '../domain/argument_entity.dart';
+import '../domain/debate_entity.dart';
 
 class DebateProvider extends ChangeNotifier {
   final List<Debate> _debates = [
@@ -18,6 +17,7 @@ class DebateProvider extends ChangeNotifier {
         timeStamp: DateTime.now(),
         argumentId: 'argumentFor1',
         userId: 'user1',
+        sources: [],
       ),
       argumentFor2: Argument(
         text:
@@ -25,6 +25,7 @@ class DebateProvider extends ChangeNotifier {
         timeStamp: DateTime.now(),
         argumentId: 'argumentFor2',
         userId: 'user1',
+        sources: [],
       ),
       argumentFor3: Argument(
         text:
@@ -32,6 +33,7 @@ class DebateProvider extends ChangeNotifier {
         timeStamp: DateTime.now(),
         argumentId: 'argumentFor3',
         userId: 'user1',
+        sources: [],
       ),
       argumentAgainst1: Argument(
         text:
@@ -39,6 +41,7 @@ class DebateProvider extends ChangeNotifier {
         timeStamp: DateTime.now(),
         argumentId: 'argumentAgainst1',
         userId: 'user2',
+        sources: [],
       ),
       argumentAgainst2: Argument(
         text:
@@ -46,6 +49,7 @@ class DebateProvider extends ChangeNotifier {
         timeStamp: DateTime.now(),
         argumentId: 'argumentAgainst2',
         userId: 'user2',
+        sources: [],
       ),
       argumentAgainst3: Argument(
         text:
@@ -53,6 +57,7 @@ class DebateProvider extends ChangeNotifier {
         timeStamp: DateTime.now(),
         argumentId: 'argumentAgainst3',
         userId: 'user2',
+        sources: [],
       ),
       isCompleted: false,
     ),
@@ -67,6 +72,7 @@ class DebateProvider extends ChangeNotifier {
         timeStamp: DateTime.now(),
         argumentId: 'argumentFor1',
         userId: 'user3',
+        sources: [],
       ),
       argumentFor2: Argument(
         text:
@@ -74,6 +80,7 @@ class DebateProvider extends ChangeNotifier {
         timeStamp: DateTime.now(),
         argumentId: 'argumentFor2',
         userId: 'user3',
+        sources: [],
       ),
       argumentFor3: Argument(
         text:
@@ -81,6 +88,7 @@ class DebateProvider extends ChangeNotifier {
         timeStamp: DateTime.now(),
         argumentId: 'argumentFor3',
         userId: 'user3',
+        sources: [],
       ),
       argumentAgainst1: Argument(
         text:
@@ -88,6 +96,7 @@ class DebateProvider extends ChangeNotifier {
         timeStamp: DateTime.now(),
         argumentId: 'argumentAgainst1',
         userId: 'user4',
+        sources: [],
       ),
       argumentAgainst2: Argument(
         text:
@@ -95,6 +104,7 @@ class DebateProvider extends ChangeNotifier {
         timeStamp: DateTime.now(),
         argumentId: 'argumentAgainst2',
         userId: 'user4',
+        sources: [],
       ),
       argumentAgainst3: Argument(
         text:
@@ -102,6 +112,7 @@ class DebateProvider extends ChangeNotifier {
         timeStamp: DateTime.now(),
         argumentId: 'argumentAgainst3',
         userId: 'user4',
+        sources: [],
       ),
       isCompleted: true,
     ),
@@ -119,7 +130,7 @@ class DebateProvider extends ChangeNotifier {
   // Method to get a debate by its ID
   Debate? getDebateById(String debateId) {
     return _debates.firstWhere(
-          (debate) => debate.debateId == debateId,
+      (debate) => debate.debateId == debateId,
       orElse: () => Debate(
         debateId: 'debateId',
         userIdPro: 'userIdPro',
@@ -130,36 +141,42 @@ class DebateProvider extends ChangeNotifier {
           timeStamp: DateTime.now(),
           argumentId: 'sampleargumentid1',
           userId: 'sampleuserid11',
+          sources: [],
         ),
         argumentFor2: Argument(
           text: 'sampleargumenttext2',
           timeStamp: DateTime.now(),
           argumentId: 'sampleargumentid',
           userId: 'sampleuserid12',
+          sources: [],
         ),
         argumentFor3: Argument(
           text: 'sampleargumenttext3',
           timeStamp: DateTime.now(),
           argumentId: 'sampleargumentid3',
           userId: 'sampleuserid13',
+          sources: [],
         ),
         argumentAgainst1: Argument(
           text: 'sampleargumenttext4',
           timeStamp: DateTime.now(),
           argumentId: 'sampleargumentid4',
           userId: 'sampleuserid14',
+          sources: [],
         ),
         argumentAgainst2: Argument(
           text: 'sampleargumenttext5',
           timeStamp: DateTime.now(),
           argumentId: 'sampleargumentid5',
           userId: 'sampleuserid15',
+          sources: [],
         ),
         argumentAgainst3: Argument(
           text: 'sampleargumenttext6',
           timeStamp: DateTime.now(),
           argumentId: 'sampleargumentid6',
           userId: 'sampleuserid16',
+          sources: [],
         ),
         isCompleted: false,
       ),
