@@ -1,10 +1,19 @@
 import 'package:debatedais/authentication/authentication.dart';
-import 'package:debatedais/rebuttal_provider.dart';
+import 'package:debatedais/authentication/login.dart';
+import 'package:debatedais/authentication/signup.dart';
+import 'package:debatedais/cite_source_page.dart';
+import 'package:debatedais/create_argument_page.dart';
+import 'package:debatedais/debate_list_page.dart';
+import 'package:debatedais/firebase/open_debates_page.dart';
+import 'package:debatedais/logical_fallacy_page.dart';
+import 'package:debatedais/weigh_in_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'authentication/forgot_password_page.dart';
 import 'create_debate.dart';
+import 'debate_details_page.dart';
 import 'debate_provider.dart';
 import 'firebase/firebase_options.dart';
 import 'logical_fallacy_provider.dart';
@@ -18,10 +27,9 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => DebateProvider()),
-        ChangeNotifierProvider(create: (_) => RebuttalProvider()),
         ChangeNotifierProvider(create: (_) => LogicalFallacyProvider()),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -36,7 +44,17 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Debate Dais',
       routes: {
-        '/createDebate': (context) => CreateDebatePage(),
+        '/create_debate': (context) => const CreateDebatePage(),
+        '/login': (context) => const LoginPage(),
+        '/signup': (context) => const SignUpPage(),
+        '/open_debates': (context) => const OpenDebatesPage(),
+        '/open_debate_detail': (context) => const DebateDetailsPage(debateId: '1',),
+        '/create_argument': (context) => const CreateArgumentPage(),
+        '/cite_source': (context) => const CiteSourcePage(),
+        '/closed_debates': (context) => const ClosedDebatesPage(),
+        '/logical_fallacies': (context) => const LogicalFallacyPage(),
+        '/weigh_in': (context) => const WeighInPage(),
+        '/forgot_password': (context) => const ForgotPasswordPage(),
       },
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,

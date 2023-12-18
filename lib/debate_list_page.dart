@@ -5,8 +5,8 @@ import 'debate_details_page.dart';
 import 'debate_entity.dart'; // Import your debate model
 import 'debate_provider.dart'; // Import your debate provider
 
-class DebateListPage extends StatelessWidget {
-  const DebateListPage({super.key});
+class ClosedDebatesPage extends StatelessWidget {
+  const ClosedDebatesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +25,8 @@ class DebateListPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 Debate debate = debates[index];
                 return ListTile(
-                  title: Text('Thesis: ${debate.thesisStatement}'),
-                  subtitle: Text('User A: ${debate.userA}'),
+                  title: Text('Thesis: {debate.thesisStatement}'),
+                  subtitle: Text('User A: {debate.userA}'),
                   onTap: () {
                     Navigator.push(
                       context,

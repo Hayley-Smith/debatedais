@@ -1,7 +1,4 @@
 import 'package:debatedais/debate_provider.dart';
-import 'package:debatedais/rebuttal_detail_page.dart';
-import 'package:debatedais/rebuttal_entity.dart';
-import 'package:debatedais/rebuttal_input_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +16,7 @@ class DebateDetailsPage extends StatefulWidget {
 class _DebateDetailsPageState extends State<DebateDetailsPage> {
   @override
   Widget build(BuildContext context) {
-    Debate debate = Provider.of<DebateProvider>(context).getDebateById(
+    Debate? debate = Provider.of<DebateProvider>(context).getDebateById(
         widget.debateId); // Implement this method in your provider
 
     return Scaffold(
@@ -31,38 +28,38 @@ class _DebateDetailsPageState extends State<DebateDetailsPage> {
               Icons.plus_one,
             ),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => RebuttalInputPage(
-                    debateId: debate.debateId,
-                  ),
-                ),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => RebuttalInputPage(
+              //       debateId: debate.debateId,
+              //     ),
+              //   ),
+              // );
             },
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
+      body: const SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Thesis Statement: ${debate.thesisStatement}'),
-            Text('User A: ${debate.userA}'),
-            Text('User B: ${debate.userB}'),
+            Text('Thesis Statement: {debate.thesisStatement}'),
+            Text('User A: {debate.userA}'),
+            Text('User B: {debate.userB}'),
             // Display other debate information as needed
-            const SizedBox(height: 16.0),
-            const Text(
+            SizedBox(height: 16.0),
+            Text(
               'Rebuttals:',
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
             // Display a list of rebuttals ordered by timestamp
-            Column(
-              children: debate.rebuttals
-                  .map((rebuttal) => RebuttalTile(rebuttal: rebuttal))
-                  .toList(),
-            ),
+            // Column(
+            //   children: debate.rebuttals
+            //       .map((rebuttal) => RebuttalTile(rebuttal: rebuttal))
+            //       .toList(),
+            // ),
           ],
         ),
       ),
@@ -70,35 +67,5 @@ class _DebateDetailsPageState extends State<DebateDetailsPage> {
   }
 }
 
-class RebuttalTile extends StatelessWidget {
-  final Rebuttal rebuttal;
 
-  const RebuttalTile({super.key, required this.rebuttal});
 
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      onTap: (() {
-        //nav to rebuttal detail page
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => RebuttalDetailPage(
-              rebuttal: rebuttal,
-            ),
-          ),
-        );
-      }),
-      title: Text(
-        rebuttal.text,
-      ),
-      subtitle: Text(
-        'User: ${rebuttal.userId}',
-      ),
-      // Display other rebuttal information as needed
-      trailing: Text(
-        'Timestamp: ${rebuttal.timestamp}',
-      ),
-    );
-  }
-}

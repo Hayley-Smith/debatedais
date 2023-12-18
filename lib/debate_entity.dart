@@ -1,25 +1,29 @@
-import 'package:debatedais/rebuttal_entity.dart';
+import 'argument.dart';
 
 class Debate {
-  String debateId;
-  String userA;
-  String userB;
-  String thesisStatement;
-  String openingStatement1;
-  String openingStatement2;
-  List<Rebuttal> rebuttals;
-  bool isThesisConfirmed;
-  bool isUserATurn;
+  final String debateId;
+  final String userIdPro;
+  late final String userIdCon;
+  late final String proStatement;
+  late final Argument argumentFor1;
+  late final Argument argumentFor2;
+  late final Argument argumentFor3;
+  late final Argument argumentAgainst1;
+  late final Argument argumentAgainst2;
+  late final Argument argumentAgainst3;
+  late final bool isCompleted;
 
   Debate({
     required this.debateId,
-    required this.userA,
-    required this.userB,
-    required this.thesisStatement,
-    required this.openingStatement1,
-    required this.openingStatement2,
-    required this.rebuttals,
-    required this.isThesisConfirmed,
-    required this.isUserATurn,
+    required this.userIdPro,
+    required this.userIdCon,
+    required this.proStatement,
+    required this.argumentFor1,
+    required this.argumentFor2,
+    required this.argumentFor3,
+    required this.argumentAgainst1,
+    required this.argumentAgainst2,
+    required this.argumentAgainst3,
+    required this.isCompleted,
   });
 }

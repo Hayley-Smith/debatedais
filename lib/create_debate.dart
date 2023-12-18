@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart'; // Import Provider
 
+import 'argument.dart';
 import 'debate_entity.dart';
 import 'debate_provider.dart';
 
@@ -9,7 +10,7 @@ class CreateDebatePage extends StatefulWidget {
   const CreateDebatePage({super.key});
 
   @override
-  _CreateDebatePageState createState() => _CreateDebatePageState();
+  State<CreateDebatePage> createState() => _CreateDebatePageState();
 }
 
 class _CreateDebatePageState extends State<CreateDebatePage> {
@@ -51,20 +52,52 @@ class _CreateDebatePageState extends State<CreateDebatePage> {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                // Create a Debate object with the provided data
-                Debate debate = Debate(
-                  debateId: 'sampleid',
-                  userA: currentUserId ?? 'n/a',
-                  userB: '', // You can leave userB empty initially
-                  thesisStatement: _thesisStatementController.text,
-                  openingStatement1: '', // Initialize with empty strings
-                  openingStatement2: '',
-                  rebuttals: [],
-                  isThesisConfirmed: false,
-                  isUserATurn: true,
+                //TODO: finish filling out this debate object
+              var debate =  Debate(
+                  debateId: 'debateId',
+                  userIdPro: 'userIdPro',
+                  userIdCon: 'userIdCon',
+                  proStatement: 'proStatement',
+                  argumentFor1: Argument(
+                    text: 'sampleargumenttext1',
+                    timeStamp: DateTime.now(),
+                    argumentId: 'sampleargumentid1',
+                    userId: 'sampleuserid11',
+                  ),
+                  argumentFor2: Argument(
+                    text: 'sampleargumenttext2',
+                    timeStamp: DateTime.now(),
+                    argumentId: 'sampleargumentid',
+                    userId: 'sampleuserid12',
+                  ),
+                  argumentFor3: Argument(
+                    text: 'sampleargumenttext3',
+                    timeStamp: DateTime.now(),
+                    argumentId: 'sampleargumentid3',
+                    userId: 'sampleuserid13',
+                  ),
+                  argumentAgainst1: Argument(
+                    text: 'sampleargumenttext4',
+                    timeStamp: DateTime.now(),
+                    argumentId: 'sampleargumentid4',
+                    userId: 'sampleuserid14',
+                  ),
+                  argumentAgainst2: Argument(
+                    text: 'sampleargumenttext5',
+                    timeStamp: DateTime.now(),
+                    argumentId: 'sampleargumentid5',
+                    userId: 'sampleuserid15',
+                  ),
+                  argumentAgainst3: Argument(
+                    text: 'sampleargumenttext6',
+                    timeStamp: DateTime.now(),
+                    argumentId: 'sampleargumentid6',
+                    userId: 'sampleuserid16',
+                  ),
+                  isCompleted: false,
                 );
 
-                // Use the provider to set the debate
+                // Use the provider to add the debate to list of debates
                 Provider.of<DebateProvider>(context, listen: false)
                     .addDebate(debate);
 

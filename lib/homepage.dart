@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
           Center(
             child: OutlinedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/createDebate');
+                Navigator.pushNamed(context, '/create_debate');
               },
               child: const Text(
                 "Create Debate",
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DebateListPage()),
+                MaterialPageRoute(builder: (context) => ClosedDebatesPage()),
               );
             },
             child: const Text('View Debates'),
