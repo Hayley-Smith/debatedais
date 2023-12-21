@@ -86,17 +86,14 @@ class ArgumentAgainstTile extends StatelessWidget {
         elevation: 10,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
-            20,
+            10,
           ),
         ),
         child: ListTile(
           subtitle: TextButton(
             onPressed: () {},
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                "Sources",
-              ),
+            child: Text(
+              "Sources",
             ),
           ),
           trailing: const CircleAvatar(
@@ -105,7 +102,7 @@ class ArgumentAgainstTile extends StatelessWidget {
             ),
           ),
           title: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(4.0),
             child: Text(
               argument.text,
             ),
@@ -134,17 +131,14 @@ class ArgumentForTile extends StatelessWidget {
         elevation: 10,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
-            20,
+            10,
           ),
         ),
         child: ListTile(
           subtitle: TextButton(
             onPressed: () {},
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                "Sources",
-              ),
+            child: Text(
+              "Sources",
             ),
           ),
           leading: const CircleAvatar(

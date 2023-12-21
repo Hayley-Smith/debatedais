@@ -14,7 +14,7 @@ class ClosedDebatesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Debate List'),
+        title: const Text('Closed Debate List'),
       ),
       body: debates.isEmpty
           ? const Center(
@@ -31,7 +31,7 @@ class ClosedDebatesPage extends StatelessWidget {
                     elevation: 10,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
-                        20,
+                        10,
                       ),
                     ),
                     child: ListTile(

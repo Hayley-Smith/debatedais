@@ -5,6 +5,7 @@ import 'package:debatedais/cite_source_page.dart';
 import 'package:debatedais/create_argument_page.dart';
 import 'package:debatedais/closed_debates_page.dart';
 import 'package:debatedais/home_page.dart';
+import 'package:debatedais/join_debate_page.dart';
 import 'package:debatedais/logical_fallacy_detail_page.dart';
 import 'package:debatedais/state/mla_source_provider.dart';
 import 'package:debatedais/open_debates_page.dart';
@@ -67,6 +68,7 @@ class MyApp extends StatelessWidget {
         '/forgot_password': (context) => const ForgotPasswordPage(),
         '/user_profile': (context) => const UserProfilePage(),
         '/home_page': (context) => const HomePage(),
+        '/join_debate': (context) => const JoinDebatePage(),
       },
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,

@@ -32,7 +32,7 @@ class _OpenDebatesPageState extends State<OpenDebatesPage> {
                         child: ListTile(
                           leading: const CircleAvatar(child: Icon(Icons.question_mark,),),
                           onTap: () {
-                          Navigator.pushNamed(context, "/make_argument");
+                          Navigator.pushNamed(context, "/join_debate");
                         },
                           title: Text(list[index].topic),
                         ),

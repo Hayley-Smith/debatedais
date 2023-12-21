@@ -1,6 +1,8 @@
+import 'package:debatedais/domain/open_debate_entity.dart';
 import 'package:flutter/material.dart';
 
 class CreateArgumentPage extends StatefulWidget {
+ // final OpenDebate openDebate;
   const CreateArgumentPage({super.key});
 
   @override
