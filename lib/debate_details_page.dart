@@ -2,6 +2,7 @@ import 'package:debatedais/state/debate_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'domain/argument_entity.dart';
 import 'domain/debate_entity.dart'; // Import your debate model
 
 class DebateDetailsPage extends StatefulWidget {
@@ -38,77 +39,124 @@ class _DebateDetailsPageState extends State<DebateDetailsPage> {
               ),
             ),
             const Divider(),
-            ListTile(
-              leading: const Icon(
-                Icons.person_add_rounded,
-                size: 36,
-              ),
-              title: Text(debate.argumentFor1.text),
-              tileColor: Colors.deepPurple[100],
+            ArgumentForTile(
+              argument: debate.argumentFor1,
             ),
             const Divider(),
-            ListTile(
-              trailing: const Icon(
-                Icons.person_remove_rounded,
-                size: 36,
-
-              ),
-              title: Text(
-                debate.argumentAgainst1.text,
-              ),
-              tileColor: Colors.deepPurple[200],
+            ArgumentAgainstTile(
+              argument: debate.argumentAgainst1,
             ),
             const Divider(),
-            ListTile(
-              leading: const Icon(
-                Icons.person_add_rounded,
-                size: 36,
-
-              ),
-              title: Text(
-                debate.argumentFor2.text,
-              ),
-              tileColor: Colors.deepPurple[100],
+            ArgumentForTile(
+              argument: debate.argumentFor2,
             ),
             const Divider(),
-            ListTile(
-              trailing: const Icon(
-                Icons.person_remove_rounded,
-                size: 36,
-
-              ),
-              title: Text(
-                debate.argumentAgainst2.text,
-              ),
-              tileColor: Colors.deepPurple[200],
+            ArgumentAgainstTile(
+              argument: debate.argumentAgainst2,
             ),
             const Divider(),
-            ListTile(
-              leading: const Icon(
-                Icons.person_add_rounded,
-                size: 36,
-
-              ),
-              title: Text(
-                debate.argumentFor3.text,
-              ),
-              tileColor: Colors.deepPurple[100],
+            ArgumentForTile(
+              argument: debate.argumentFor3,
             ),
             const Divider(),
-            Card(
-              child: ListTile(
-                trailing: const Icon(
-                  Icons.person_remove_rounded,
-                  size: 36,
-
-                ),
-                tileColor: Colors.deepPurple[200],
-                title: Text(
-                  debate.argumentAgainst3.text,
-                ),
-              ),
+            ArgumentAgainstTile(
+              argument: debate.argumentAgainst3,
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class ArgumentAgainstTile extends StatelessWidget {
+  const ArgumentAgainstTile({
+    super.key,
+    required this.argument,
+  });
+
+  final Argument argument;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        elevation: 10,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+            20,
+          ),
+        ),
+        child: ListTile(
+          subtitle: TextButton(
+            onPressed: () {},
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                "Sources",
+              ),
+            ),
+          ),
+          trailing: const CircleAvatar(
+            child: Icon(
+              Icons.person_remove_rounded,
+            ),
+          ),
+          title: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              argument.text,
+            ),
+          ),
+          tileColor: Colors.deepPurple[200],
+        ),
+      ),
+    );
+  }
+}
+
+class ArgumentForTile extends StatelessWidget {
+  const ArgumentForTile({
+    super.key,
+    required this.argument,
+  });
+
+  final Argument argument;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        elevation: 10,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+            20,
+          ),
+        ),
+        child: ListTile(
+          subtitle: TextButton(
+            onPressed: () {},
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                "Sources",
+              ),
+            ),
+          ),
+          leading: const CircleAvatar(
+            child: Icon(
+              Icons.person_add_rounded,
+            ),
+          ),
+          title: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(argument.text),
+          ),
+          tileColor: Colors.deepPurple[100],
         ),
       ),
     );

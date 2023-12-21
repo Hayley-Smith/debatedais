@@ -8,21 +8,26 @@ class LogicalFallacyDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text(fallacy.title),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              fallacy.text,
-              style: const TextStyle(fontSize: 16.0),
-            ),
-            // Add additional details or content here
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+               fallacy.essay,
+                style: const TextStyle(fontSize: 16.0),
+              ),
+              // Add additional details or content here
+            ],
+          ),
         ),
       ),
     );

@@ -10,6 +10,12 @@ class CreateArgumentPage extends StatefulWidget {
 class _CreateArgumentPageState extends State<CreateArgumentPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text("Create Argument Page"),),);
+    return const Scaffold(
+      body: Center(
+        child: Text(
+          "Create Argument Page",
+        ),
+      ),
+    );
   }
 }

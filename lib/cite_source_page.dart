@@ -87,7 +87,7 @@ class _CiteSourcePageState extends State<CiteSourcePage> {
       publisher: publisherController.text,
       publicationDate: publicationDateController.text,
       location: locationController.text,
-      dateOfAccess: dateOfAccessController.text,
+      dateOfAccess: dateOfAccessController.text, mlaSourceId: DateTime.now().toString(),
     );
 
     // Use the 'mlaSource' object as needed, for example, display it or save it.

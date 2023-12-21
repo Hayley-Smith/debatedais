@@ -118,6 +118,8 @@ class DebateProvider extends ChangeNotifier {
     ),
   ]; // The current debate
 
+
+
   // Getter for the current debate
   List<Debate> get debates => _debates;
 

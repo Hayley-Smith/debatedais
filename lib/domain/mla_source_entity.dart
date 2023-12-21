@@ -1,4 +1,5 @@
 class MLASource {
+  final String mlaSourceId;
   final String author;
   final String titleOfSource;
   final String titleOfContainer;
@@ -11,6 +12,7 @@ class MLASource {
   final String dateOfAccess;
 
   MLASource({
+    required this.mlaSourceId,
     required this.author,
     required this.titleOfSource,
     required this.titleOfContainer,
