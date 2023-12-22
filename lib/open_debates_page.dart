@@ -11,37 +11,43 @@ class OpenDebatesPage extends StatefulWidget {
 }
 
 class _OpenDebatesPageState extends State<OpenDebatesPage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text("Open Debates"),
+      ),
       body: Center(
         child: Consumer<OpenDebateProvider>(
           builder: (context, provider, child) {
             List<OpenDebate> list = provider.openDebates;
-            return ListView.builder(
-              itemCount: list.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Card(elevation: 10, color: Colors.deepPurple[100],
+            return Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: ListView.builder(
+                itemCount: list.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, "/join_debate");
+                    },
+                    child: Card(
+                      elevation: 10,
+                      color: Colors.deepPurple[100],
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ListTile(
-                          leading: const CircleAvatar(child: Icon(Icons.question_mark,),),
-                          onTap: () {
-                          Navigator.pushNamed(context, "/join_debate");
-                        },
+                          leading: const CircleAvatar(
+                            child: Icon(
+                              Icons.question_mark,
+                            ),
+                          ),
                           title: Text(list[index].topic),
                         ),
                       ),
                     ),
-                    const Divider(),
-                  ],
-                );
-              },
+                  );
+                },
+              ),
             );
           },
         ),

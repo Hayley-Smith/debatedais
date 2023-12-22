@@ -15,6 +15,8 @@ class DebateDetailsPage extends StatefulWidget {
 }
 
 class _DebateDetailsPageState extends State<DebateDetailsPage> {
+  final double thresholdWidth = 1000; // Adjust this value as needed
+
   @override
   Widget build(BuildContext context) {
     Debate? debate = Provider.of<DebateProvider>(context).getDebateById(
@@ -22,48 +24,156 @@ class _DebateDetailsPageState extends State<DebateDetailsPage> {
 
     return Scaffold(
       appBar: AppBar(),
+      body: LayoutBuilder(builder: (context, constraints) {
+        double currentWidth = constraints.maxWidth;
+
+        if (currentWidth < thresholdWidth) {
+          return DebateDetailsMobileLayout(
+            debate: debate,
+          );
+        } else {
+          return DebateDetailsDesktopLayout(
+            debate: debate,
+          );
+        }
+      }),
+    );
+  }
+}
+
+class DebateDetailsDesktopLayout extends StatelessWidget {
+  final Debate? debate;
+
+  const DebateDetailsDesktopLayout({
+    super.key,
+    required this.debate,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
+        child: Row(
           children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * .2,
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    debate!.proStatement,
-                    style: Theme.of(context).textTheme.headlineLarge,
-                    softWrap: true,
+            const Expanded(
+              child: Column(
+                children: [
+                  Text(
+                    "",
                   ),
-                ),
+                ],
               ),
             ),
-            const Divider(),
-            ArgumentForTile(
-              argument: debate.argumentFor1,
+            Expanded(flex: 4,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .2,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          debate!.proStatement,
+                          style: Theme.of(context).textTheme.headlineLarge,
+                          softWrap: true,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Divider(),
+                  ArgumentForTile(
+                    argument: debate!.argumentFor1,
+                  ),
+                  //const Divider(),
+                  ArgumentAgainstTile(
+                    argument: debate!.argumentAgainst1,
+                  ),
+                  //const Divider(),
+                  ArgumentForTile(
+                    argument: debate!.argumentFor2,
+                  ),
+                  //const Divider(),
+                  ArgumentAgainstTile(
+                    argument: debate!.argumentAgainst2,
+                  ),
+                  //const Divider(),
+                  ArgumentForTile(
+                    argument: debate!.argumentFor3,
+                  ),
+                  // const Divider(),
+                  ArgumentAgainstTile(
+                    argument: debate!.argumentAgainst3,
+                  ),
+                ],
+              ),
             ),
-            const Divider(),
-            ArgumentAgainstTile(
-              argument: debate.argumentAgainst1,
-            ),
-            const Divider(),
-            ArgumentForTile(
-              argument: debate.argumentFor2,
-            ),
-            const Divider(),
-            ArgumentAgainstTile(
-              argument: debate.argumentAgainst2,
-            ),
-            const Divider(),
-            ArgumentForTile(
-              argument: debate.argumentFor3,
-            ),
-            const Divider(),
-            ArgumentAgainstTile(
-              argument: debate.argumentAgainst3,
+            const Expanded(
+              child: Column(
+                children: [
+                  Text(
+                    "",
+                  ),
+                ],
+              ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class DebateDetailsMobileLayout extends StatelessWidget {
+  const DebateDetailsMobileLayout({
+    super.key,
+    required this.debate,
+  });
+
+  final Debate? debate;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .2,
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  debate!.proStatement,
+                  style: Theme.of(context).textTheme.headlineLarge,
+                  softWrap: true,
+                ),
+              ),
+            ),
+          ),
+          const Divider(),
+          ArgumentForTile(
+            argument: debate!.argumentFor1,
+          ),
+          //const Divider(),
+          ArgumentAgainstTile(
+            argument: debate!.argumentAgainst1,
+          ),
+          //const Divider(),
+          ArgumentForTile(
+            argument: debate!.argumentFor2,
+          ),
+          //const Divider(),
+          ArgumentAgainstTile(
+            argument: debate!.argumentAgainst2,
+          ),
+          //const Divider(),
+          ArgumentForTile(
+            argument: debate!.argumentFor3,
+          ),
+          // const Divider(),
+          ArgumentAgainstTile(
+            argument: debate!.argumentAgainst3,
+          ),
+        ],
       ),
     );
   }
@@ -79,36 +189,33 @@ class ArgumentAgainstTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        elevation: 10,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(
-            10,
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      elevation: 10,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(
+          10,
+        ),
+      ),
+      child: ListTile(
+        subtitle: TextButton(
+          onPressed: () {},
+          child: const Text(
+            "Sources",
           ),
         ),
-        child: ListTile(
-          subtitle: TextButton(
-            onPressed: () {},
-            child: Text(
-              "Sources",
-            ),
+        trailing: const CircleAvatar(
+          child: Icon(
+            Icons.person_remove_rounded,
           ),
-          trailing: const CircleAvatar(
-            child: Icon(
-              Icons.person_remove_rounded,
-            ),
-          ),
-          title: Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: Text(
-              argument.text,
-            ),
-          ),
-          tileColor: Colors.deepPurple[200],
         ),
+        title: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Text(
+            argument.text,
+          ),
+        ),
+        tileColor: Colors.deepPurple[200],
       ),
     );
   }
@@ -124,34 +231,31 @@ class ArgumentForTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        elevation: 10,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(
-            10,
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      elevation: 10,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(
+          10,
+        ),
+      ),
+      child: ListTile(
+        subtitle: TextButton(
+          onPressed: () {},
+          child: const Text(
+            "Sources",
           ),
         ),
-        child: ListTile(
-          subtitle: TextButton(
-            onPressed: () {},
-            child: Text(
-              "Sources",
-            ),
+        leading: const CircleAvatar(
+          child: Icon(
+            Icons.person_add_rounded,
           ),
-          leading: const CircleAvatar(
-            child: Icon(
-              Icons.person_add_rounded,
-            ),
-          ),
-          title: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(argument.text),
-          ),
-          tileColor: Colors.deepPurple[100],
         ),
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(argument.text),
+        ),
+        tileColor: Colors.deepPurple[100],
       ),
     );
   }

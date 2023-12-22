@@ -32,21 +32,13 @@ class _LoginPageState extends State<LoginPage> {
         email: emailController.text,
         password: passwordController.text,
       );
+      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop;
-      if (kDebugMode) {
-        print("exception caught");
-      }
       setState(() async {
-        if (kDebugMode) {
-          print("signUserIn - exceptions - setState");
-        }
         await showDialog(
           context: context,
           builder: (context) {
-            if (kDebugMode) {
-              print("alert");
-            }
             return AlertDialog(
               title: Text(e.code),
             );

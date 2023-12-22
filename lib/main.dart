@@ -1,10 +1,10 @@
 import 'package:debatedais/authentication/authentication.dart';
 import 'package:debatedais/authentication/login.dart';
 import 'package:debatedais/authentication/signup.dart';
-import 'package:debatedais/cite_source_page.dart';
+import 'package:debatedais/cite_source/cite_source_mobile_layout.dart';
 import 'package:debatedais/create_argument_page.dart';
 import 'package:debatedais/closed_debates_page.dart';
-import 'package:debatedais/home_page.dart';
+import 'package:debatedais/homepage/home_page.dart';
 import 'package:debatedais/join_debate_page.dart';
 import 'package:debatedais/logical_fallacy_detail_page.dart';
 import 'package:debatedais/state/mla_source_provider.dart';
@@ -20,6 +20,7 @@ import 'package:provider/provider.dart';
 import 'authentication/forgot_password_page.dart';
 import 'create_debate_page.dart';
 import 'debate_details_page.dart';
+import 'homepage/homepage_large.dart';
 import 'state/debate_provider.dart';
 import 'firebase/firebase_options.dart';
 import 'state/logical_fallacy_provider.dart';
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Debate Dais',
+      initialRoute: '/',
       routes: {
         '/create_debate': (context) => const CreateDebatePage(),
         '/login': (context) => const LoginPage(),
@@ -67,7 +69,7 @@ class MyApp extends StatelessWidget {
         '/weigh_in': (context) => const WeighInPage(),
         '/forgot_password': (context) => const ForgotPasswordPage(),
         '/user_profile': (context) => const UserProfilePage(),
-        '/home_page': (context) => const HomePage(),
+        '/home_page': (context) => const HomepageLarge(),
         '/join_debate': (context) => const JoinDebatePage(),
       },
       theme: ThemeData(

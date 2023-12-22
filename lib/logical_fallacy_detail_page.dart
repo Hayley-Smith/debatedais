@@ -21,9 +21,39 @@ class LogicalFallacyDetailPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-               fallacy.essay,
-                style: const TextStyle(fontSize: 16.0),
+              Card(color: Colors.deepPurple[100],
+                clipBehavior: Clip.antiAlias,
+                elevation: 10,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                    10,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: ListTile(
+                    title: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        fallacy.text,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.deepPurple,
+                        ),
+                      ),
+                    ),
+                    subtitle: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        fallacy.essay,
+                        style: TextStyle(
+                          color: Colors.deepPurple[400],
+                        ),
+                      ),
+                    ),
+                    // Additional information or actions can be added here
+                  ),
+                ),
               ),
               // Add additional details or content here
             ],
