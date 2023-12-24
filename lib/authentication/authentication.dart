@@ -1,9 +1,11 @@
-import 'package:debatedais/homepage/homepage_large.dart';
+
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../homepage/home_page.dart';
+
+import '../UI/homepage/home_page.dart';
+import '../UI/homepage/homepage_large.dart';
 import 'login.dart';
 
 class AuthenticationPage extends StatelessWidget {

@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../domain/mla_source_entity.dart';
+import '../../domain/mla_source_entity.dart';
+
+
 
 class CiteSourcePage extends StatefulWidget {
   const CiteSourcePage({super.key});

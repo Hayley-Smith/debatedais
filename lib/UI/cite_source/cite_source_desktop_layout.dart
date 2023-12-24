@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../../domain/mla_source_entity.dart';
 
-import '../domain/mla_source_entity.dart';
 
 class CiteSourceDesktopLayout extends StatefulWidget {
   const CiteSourceDesktopLayout({super.key});

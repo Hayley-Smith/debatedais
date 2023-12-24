@@ -1,10 +1,7 @@
-import 'package:debatedais/cite_source/cite_source_mobile_layout.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../domain/debate_entity.dart';
-import '../state/debate_provider.dart';
+import 'package:flutter/material.dart';
 import 'cite_source_desktop_layout.dart';
+import 'cite_source_mobile_layout.dart';
 
 class CiteSourcePageResponsive extends StatefulWidget {
   const CiteSourcePageResponsive({super.key});
