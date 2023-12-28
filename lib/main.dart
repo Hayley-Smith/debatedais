@@ -1,4 +1,4 @@
-import 'package:debatedais/UI/actice_debate_affirmative_page.dart';
+import 'package:debatedais/UI/active_debate_affirmative_page.dart';
 import 'package:debatedais/authentication/authentication.dart';
 import 'package:debatedais/authentication/login.dart';
 import 'package:debatedais/authentication/signup.dart';
@@ -8,9 +8,9 @@ import 'package:debatedais/UI/closed_debates_page.dart';
 import 'package:debatedais/UI/join_debate_page.dart';
 
 import 'package:debatedais/state/mla_source_provider.dart';
-import 'package:debatedais/UI/open_debates_page.dart';
+import 'package:debatedais/UI/thesis_statement_list_page.dart';
 import 'package:debatedais/UI/logical_fallacy_list_page.dart';
-import 'package:debatedais/state/open_debate_provider.dart';
+import 'package:debatedais/state/thesis_statement_provider.dart';
 import 'package:debatedais/UI/user_profile_page.dart';
 import 'package:debatedais/UI/weigh_in_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -36,7 +36,7 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => DebateProvider()),
-        ChangeNotifierProvider(create: (_) => OpenDebateProvider()),
+        ChangeNotifierProvider(create: (_) => ThesisStatementProvider()),
         ChangeNotifierProvider(create: (_) => LogicalFallacyProvider()),
         //  ChangeNotifierProvider(create: (_) => ArgumentProvider()),
         //  ChangeNotifierProvider(create: (_) => UserProvider()),
@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
         '/create_debate': (context) => const CreateDebatePage(),
         '/login': (context) => const LoginPage(),
         '/signup': (context) => const SignUpPage(),
-        '/open_debates': (context) => const OpenDebatesPage(),
+        '/open_debates': (context) => const ThesisStatementListPage(),
         '/open_debate_detail': (context) => const DebateDetailsPage(
               debateId: '1',
             ),
@@ -84,6 +84,7 @@ class MyApp extends StatelessWidget {
             ),
       },
       theme: ThemeData(
+
         textTheme: TextTheme(),
         primarySwatch: Colors.deepPurple,
       ),

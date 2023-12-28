@@ -1,5 +1,5 @@
-import 'package:debatedais/domain/open_debate_entity.dart';
-import 'package:debatedais/state/open_debate_provider.dart';
+import 'package:debatedais/domain/thesis_statement_entity.dart';
+import 'package:debatedais/state/thesis_statement_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart'; // Import Provider
@@ -72,10 +72,10 @@ class _CreateDebatePageState extends State<CreateDebatePage> {
                     child: ElevatedButton(
                       onPressed: () {
                         //TODO: finish filling out this debate object
-                        var debate = OpenDebate(openDebateId: currentUserId!, topic: _thesisStatementController.text, proposer: "currentlyloggedinuser");
+                        var debate = ThesisStatement(openDebateId: currentUserId!, topic: _thesisStatementController.text, proposer: "currentlyloggedinuser");
 
                         // Use the provider to add the debate to list of debates
-                        Provider.of<OpenDebateProvider>(context, listen: false)
+                        Provider.of<ThesisStatementProvider>(context, listen: false)
                             .addOpenDebate(debate);
 
                         // Navigate back to the previous screen or perform other actions

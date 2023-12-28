@@ -1,5 +1,5 @@
-import 'package:debatedais/domain/open_debate_entity.dart';
-import 'package:debatedais/state/open_debate_provider.dart';
+import 'package:debatedais/domain/thesis_statement_entity.dart';
+import 'package:debatedais/state/thesis_statement_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +13,7 @@ class JoinDebatePage extends StatefulWidget {
 }
 
 class _JoinDebatePageState extends State<JoinDebatePage> {
-  late OpenDebate openDebate;
+  late ThesisStatement openDebate;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _JoinDebatePageState extends State<JoinDebatePage> {
                 child: Center(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Consumer<OpenDebateProvider>(
+                    child: Consumer<ThesisStatementProvider>(
                       builder: (context, provider, child) {
                         openDebate = provider.selectedOpenDebate;
                         return Text(

@@ -1,4 +1,4 @@
-import 'package:debatedais/domain/open_debate_entity.dart';
+import 'package:debatedais/domain/thesis_statement_entity.dart';
 import 'package:flutter/material.dart';
 
 class CreateArgumentPage extends StatefulWidget {
