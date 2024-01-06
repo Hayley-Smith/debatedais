@@ -23,8 +23,9 @@ import 'authentication/forgot_password_page.dart';
 import 'UI/create_debate_page.dart';
 import 'UI/debate_details_page.dart';
 
+import 'firebase_options.dart';
 import 'state/debate_provider.dart';
-import 'firebase/firebase_options.dart';
+
 import 'state/logical_fallacy_provider.dart';
 
 void main() async {
