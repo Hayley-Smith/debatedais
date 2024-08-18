@@ -1,4 +1,5 @@
 import 'package:debatedais/UI/active_debate_affirmative_page.dart';
+import 'package:debatedais/UI/fallacy_pager_widget.dart';
 import 'package:debatedais/authentication/authentication.dart';
 import 'package:debatedais/authentication/login.dart';
 import 'package:debatedais/authentication/signup.dart';
@@ -23,7 +24,7 @@ import 'authentication/forgot_password_page.dart';
 import 'UI/create_debate_page.dart';
 import 'UI/debate_details_page.dart';
 
-import 'firebase_options.dart';
+import 'firebase/firebase_options.dart';
 import 'state/debate_provider.dart';
 
 import 'state/logical_fallacy_provider.dart';
@@ -70,6 +71,7 @@ class MyApp extends StatelessWidget {
         '/closed_debates': (context) => const ClosedDebatesPage(),
         '/logical_fallacies': (context) => const LogicalFallacyListPage(),
         //'/logical_fallacy': (context) => LogicalFallacyDetailPage(),
+        '/fallacy_intro': (context) => FallacyPagerWidget(),
         '/weigh_in': (context) => const WeighInPage(),
         '/forgot_password': (context) => const ForgotPasswordPage(),
         '/user_profile': (context) => const UserProfilePage(),
@@ -86,7 +88,7 @@ class MyApp extends StatelessWidget {
       },
       theme: ThemeData(
 
-        textTheme: TextTheme(),
+        textTheme: const TextTheme(),
         primarySwatch: Colors.deepPurple,
       ),
       home: const AuthenticationPage(),

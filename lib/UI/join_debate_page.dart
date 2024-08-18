@@ -1,7 +1,10 @@
+import 'package:debatedais/UI/widgets/custom_drawer.dart';
 import 'package:debatedais/domain/thesis_statement_entity.dart';
 import 'package:debatedais/state/thesis_statement_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+
 
 class JoinDebatePage extends StatefulWidget {
   const JoinDebatePage({
@@ -21,6 +24,7 @@ class _JoinDebatePageState extends State<JoinDebatePage> {
       appBar: AppBar(
         title: const Text("Join the Debate"),
       ),
+      drawer: const CustomDrawer(),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -34,143 +38,148 @@ class _JoinDebatePageState extends State<JoinDebatePage> {
             tileMode: TileMode.clamp,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .20,
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Consumer<ThesisStatementProvider>(
-                      builder: (context, provider, child) {
-                        openDebate = provider.selectedOpenDebate;
-                        return Text(
-                          provider.selectedOpenDebate.topic,
-                          style: Theme.of(context).textTheme.headlineSmall,
-                          // softWrap: true,
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              ),
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Text(
-                    "Choose a perspective",
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                ),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Center(
+          child: SizedBox(
+            width: 600,
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * .7,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, '/active_debate_affirmative');
-                      },
-                      child: Card(
-                        elevation: 10,
-                        color: Colors.deepPurple[200],
-                        child: const Center(
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "Affirmative",
-                                    softWrap: true,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 24),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "Tap here to take the affirmative "
-                                    "side of the debate, supporting the resolution "
-                                    "or proposition.",
-                                    softWrap: true,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                    height: MediaQuery.of(context).size.height * .20,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Consumer<ThesisStatementProvider>(
+                          builder: (context, provider, child) {
+                            openDebate = provider.selectedOpenDebate;
+                            return Text(
+                              provider.selectedOpenDebate.topic,
+                              style: Theme.of(context).textTheme.headlineSmall,
+                              // softWrap: true,
+                            );
+                          },
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: Text(
+                        "Choose a perspective",
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                    ),
                   ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * .7,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, '/active_debate_affirmative');
-                      },
-                      child: Card(
-                        elevation: 10,
-                        color: Colors.deepPurple[200],
-                        child: const SizedBox(
-                          child: Center(
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "Negative",
-                                      softWrap: true,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 24),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .7,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, '/active_debate_affirmative');
+                          },
+                          child: Card(
+                            elevation: 10,
+                            color: Colors.deepPurple[200],
+                            child: const Center(
+                              child: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        "Affirmative",
+                                        softWrap: true,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 24),
+                                      ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "Tap here to take the negative side of the debate, opposing the resolution or proposition. ",
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        "Tap here to take the affirmative "
+                                        "side of the debate, supporting the resolution "
+                                        "or proposition.",
+                                        softWrap: true,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
-                    ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .7,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, '/active_debate_affirmative');
+                          },
+                          child: Card(
+                            elevation: 10,
+                            color: Colors.deepPurple[200],
+                            child: const SizedBox(
+                              child: Center(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text(
+                                          "Negative",
+                                          softWrap: true,
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 24),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text(
+                                          "Tap here to take the negative side of the debate, opposing the resolution or proposition. ",
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Divider(),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .8,
+                        child: const AffirmativeCard(),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .8,
+                        child: const NegativeCard(),
+                      ),
+                    ],
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              const Divider(),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    child: AffirmativeCard(),
-                    width: MediaQuery.of(context).size.width * .8,
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * .8,
-                    child: NegativeCard(),
-                  ),
-                ],
-              ),
-            ],
+            ),
           ),
         ),
       ),
@@ -179,6 +188,8 @@ class _JoinDebatePageState extends State<JoinDebatePage> {
 }
 
 class AffirmativeCard extends StatelessWidget {
+  const AffirmativeCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const Padding(
@@ -221,6 +232,8 @@ class AffirmativeCard extends StatelessWidget {
 }
 
 class NegativeCard extends StatelessWidget {
+  const NegativeCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const Padding(

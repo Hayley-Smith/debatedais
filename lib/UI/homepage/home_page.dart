@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
+import '../widgets/custom_drawer.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -11,11 +12,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: HomepageBody(),
+    return  Scaffold(
+      appBar: AppBar(),
+      drawer: const CustomDrawer(),
+      body: const HomepageBody(),
     );
   }
 }
+
 
 class HomepageBody extends StatelessWidget {
   const HomepageBody({
@@ -42,22 +46,12 @@ class HomepageBody extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          Center(
+          const Center(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Card(
-                shadowColor: Colors.deepPurple,
-                elevation: 20,
-                clipBehavior: Clip.antiAlias,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                    10,
-                  ),
-                ),
-                child: const Image(
-                  image: AssetImage(
-                    'assets/samplelogodd.png',
-                  ),
+              padding: EdgeInsets.all(8.0),
+              child: Image(
+                image: AssetImage(
+                  'assets/ddlogo.png',
                 ),
               ),
             ),

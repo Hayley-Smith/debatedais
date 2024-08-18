@@ -1,3 +1,4 @@
+import 'package:debatedais/UI/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 class ActiveDebateAffirmativePage extends StatefulWidget {
@@ -15,6 +16,7 @@ class _ActiveDebateAffirmativePageState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const CustomDrawer(),
       body: LayoutBuilder(builder: (context, constraints) {
         double currentWidth = constraints.maxWidth;
 

@@ -1,3 +1,5 @@
+
+import 'package:debatedais/UI/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -43,12 +45,13 @@ class ClosedDebatesDesktopLayout extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Closed Debate List'),
       ),
+      drawer: const CustomDrawer(),
       body: debates.isEmpty
           ? const Center(
               child: Text('No debates available.'),
             )
           : Container(
-            decoration: BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
                     Colors.white,
@@ -60,44 +63,49 @@ class ClosedDebatesDesktopLayout extends StatelessWidget {
                   tileMode: TileMode.clamp,
                 ),
               ),
-            child: ListView.builder(
-                itemCount: debates.length,
-                itemBuilder: (context, index) {
-                  Debate debate = debates[index];
-                  return InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DebateDetailsPage(
-                            debateId: debate.debateId,
+              child: Center(
+                child: SizedBox(
+                  width: 600,
+                  child: ListView.builder(
+                    itemCount: debates.length,
+                    itemBuilder: (context, index) {
+                      Debate debate = debates[index];
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DebateDetailsPage(
+                                debateId: debate.debateId,
+                              ),
+                            ),
+                          );
+                        },
+                        child: Card(
+                          clipBehavior: Clip.antiAlias,
+                          elevation: 10,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                              10,
+                            ),
+                          ),
+                          child: ListTile(
+                            //leading: const CircleAvatar(child: Icon(Icons.question_mark,),),
+                            tileColor: Colors.deepPurple[100],
+                            title: Text(
+                              debate.proStatement,
+                            ),
+                            subtitle: Text(
+                              '${debate.userIdPro} vs. ${debate.userIdCon}',
+                            ),
                           ),
                         ),
                       );
                     },
-                    child: Card(
-                      clipBehavior: Clip.antiAlias,
-                      elevation: 10,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          10,
-                        ),
-                      ),
-                      child: ListTile(
-                        //leading: const CircleAvatar(child: Icon(Icons.question_mark,),),
-                        tileColor: Colors.deepPurple[100],
-                        title: Text(
-                          debate.proStatement,
-                        ),
-                        subtitle: Text(
-                          '${debate.userIdPro} vs. ${debate.userIdCon}',
-                        ),
-                      ),
-                    ),
-                  );
-                },
+                  ),
+                ),
               ),
-          ),
+            ),
     );
   }
 }
@@ -116,12 +124,13 @@ class ClosedDebatesMobileLayout extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Closed Debate List'),
       ),
+      drawer: const CustomDrawer(),
       body: debates.isEmpty
           ? const Center(
               child: Text('No debates available.'),
             )
           : Container(
-            decoration:  BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
                     Colors.white,
@@ -133,9 +142,9 @@ class ClosedDebatesMobileLayout extends StatelessWidget {
                   tileMode: TileMode.clamp,
                 ),
               ),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: ListView.builder(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: ListView.builder(
                   itemCount: debates.length,
                   itemBuilder: (context, index) {
                     Debate debate = debates[index];
@@ -150,30 +159,44 @@ class ClosedDebatesMobileLayout extends StatelessWidget {
                           ),
                         );
                       },
-                      child: Card(
-                        clipBehavior: Clip.antiAlias,
-                        elevation: 10,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            10,
-                          ),
-                        ),
-                        child: ListTile(
-                          //leading: const CircleAvatar(child: Icon(Icons.question_mark,),),
-                          tileColor: Colors.deepPurple[100],
-                          title: Text(
-                            debate.proStatement,
-                          ),
-                          subtitle: Text(
-                            '${debate.userIdPro} vs. ${debate.userIdCon}',
-                          ),
-                        ),
-                      ),
+                      child: ProArgumentCard(debate: debate),
                     );
                   },
                 ),
+              ),
             ),
-          ),
+    );
+  }
+}
+
+class ProArgumentCard extends StatelessWidget {
+  const ProArgumentCard({
+    super.key,
+    required this.debate,
+  });
+
+  final Debate debate;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      elevation: 10,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(
+          10,
+        ),
+      ),
+      child: ListTile(
+        //leading: const CircleAvatar(child: Icon(Icons.question_mark,),),
+        tileColor: Colors.deepPurple[100],
+        title: Text(
+          debate.proStatement,
+        ),
+        subtitle: Text(
+          '${debate.userIdPro} vs. ${debate.userIdCon}',
+        ),
+      ),
     );
   }
 }

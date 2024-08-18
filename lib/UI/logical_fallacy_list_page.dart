@@ -22,7 +22,7 @@ class _LogicalFallacyListPageState extends State<LogicalFallacyListPage> {
         builder: (context, provider, child) {
           List<LogicalFallacy> fallacies = provider.fallacies;
           return Container(
-            decoration:  BoxDecoration(
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
                   Colors.white,
@@ -34,52 +34,57 @@ class _LogicalFallacyListPageState extends State<LogicalFallacyListPage> {
                 tileMode: TileMode.clamp,
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: ListView.builder(
-                itemCount: fallacies.length,
-                itemBuilder: (context, index) {
-                  LogicalFallacy fallacy = fallacies[index];
-                  return InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              LogicalFallacyDetailPage(fallacy: fallacies[index]),
+            child: Center(
+              child: SizedBox(width: 600,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ListView.builder(
+                    itemCount: fallacies.length,
+                    itemBuilder: (context, index) {
+                      LogicalFallacy fallacy = fallacies[index];
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LogicalFallacyDetailPage(
+                                  fallacy: fallacies[index]),
+                            ),
+                          );
+                        },
+                        child: Card(
+                          color: Colors.deepPurple[100],
+                          clipBehavior: Clip.antiAlias,
+                          elevation: 10,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                              10,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: ListTile(
+                              title: Text(
+                                fallacy.title,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.deepPurple,
+                                ),
+                              ),
+                              subtitle: Text(
+                                fallacy.text,
+                                style: TextStyle(
+                                  color: Colors.deepPurple[400],
+                                ),
+                              ),
+                              // Additional information or actions can be added here
+                            ),
+                          ),
                         ),
                       );
                     },
-                    child: Card(color: Colors.deepPurple[100],
-                      clipBehavior: Clip.antiAlias,
-                      elevation: 10,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          10,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: ListTile(
-                          title: Text(
-                            fallacy.title,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.deepPurple,
-                            ),
-                          ),
-                          subtitle: Text(
-                            fallacy.text,
-                            style: TextStyle(
-                              color: Colors.deepPurple[400],
-                            ),
-                          ),
-                          // Additional information or actions can be added here
-                        ),
-                      ),
-                    ),
-                  );
-                },
+                  ),
+                ),
               ),
             ),
           );

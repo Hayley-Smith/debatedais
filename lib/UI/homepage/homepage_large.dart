@@ -25,31 +25,14 @@ class HomepageLarge extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Expanded(
-              flex: 2,
+            const Expanded(
+              flex: 3,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    //flex: 3,
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: Card(
-                          shadowColor: Colors.deepPurple,
-                          elevation: 20,
-                          clipBehavior: Clip.antiAlias,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                              10,
-                            ),
-                          ),
-                          child: const Image(
-                            image: AssetImage(
-                              'assets/samplelogodd.png',
-                            ),
-                          ),
-                        ),
-                      ),
+                  Image(
+                    image: AssetImage(
+                      'assets/ddlogo.png',
                     ),
                   ),
                   // Divider(),

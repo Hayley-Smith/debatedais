@@ -31,44 +31,46 @@ class _ThesisStatementListPageState extends State<ThesisStatementListPage> {
           ),
         ),
         child: Center(
-          child: Consumer<ThesisStatementProvider>(
-            builder: (context, provider, child) {
-              List<ThesisStatement> list = provider.openDebates;
-              return Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: ListView.builder(
-                  itemCount: list.length,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        //set the selectedOpenDebate in openDebateProvider
-                        Provider.of<ThesisStatementProvider>(context, listen: false)
-                            .setSelectedOpenDebate(list[index]);
-                        //nav to join debate page
-                        Navigator.pushNamed(context, "/join_debate",);
-                      },
-                      child: Card(
-                        elevation: 10,
-                        color: Colors.deepPurple[100],
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ListTile(
-                            leading: const CircleAvatar(
-                              backgroundColor: Colors.white10,
-                              child: Icon(
-                                Icons.question_mark,
-                                color: Colors.white,
+          child: SizedBox(width: 600,
+            child: Consumer<ThesisStatementProvider>(
+              builder: (context, provider, child) {
+                List<ThesisStatement> list = provider.openDebates;
+                return Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ListView.builder(
+                    itemCount: list.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          //set the selectedOpenDebate in openDebateProvider
+                          Provider.of<ThesisStatementProvider>(context, listen: false)
+                              .setSelectedOpenDebate(list[index]);
+                          //nav to join debate page
+                          Navigator.pushNamed(context, "/join_debate",);
+                        },
+                        child: Card(
+                          elevation: 10,
+                          color: Colors.deepPurple[100],
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ListTile(
+                              leading: const CircleAvatar(
+                                backgroundColor: Colors.white10,
+                                child: Icon(
+                                  Icons.question_mark,
+                                  color: Colors.white,
+                                ),
                               ),
+                              title: Text(list[index].topic),
                             ),
-                            title: Text(list[index].topic),
                           ),
                         ),
-                      ),
-                    );
-                  },
-                ),
-              );
-            },
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
           ),
         ),
       ),
