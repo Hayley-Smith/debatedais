@@ -30,7 +30,7 @@ class HomePageSection extends StatelessWidget {
               Navigator.pushNamed(context, path);
             },
             child:  Padding(
-              padding: EdgeInsets.all(18.0),
+              padding: const EdgeInsets.all(18.0),
               child: Text(buttonText),
             ),
           ),

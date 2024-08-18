@@ -25,6 +25,7 @@ class _CiteSourceDesktopLayoutState extends State<CiteSourceDesktopLayout> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     const double thresholdWidth = 600;
 
 

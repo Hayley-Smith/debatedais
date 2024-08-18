@@ -235,7 +235,7 @@ class ArgumentAgainstTile extends StatelessWidget {
             "Sources",
           ),
         ),
-        trailing: CircleAvatar(backgroundColor: Colors.black38,
+        trailing: const CircleAvatar(backgroundColor: Colors.black38,
           child: Icon(
             Icons.person_remove_rounded,
           ),
@@ -277,7 +277,7 @@ class ArgumentForTile extends StatelessWidget {
             "Sources",
           ),
         ),
-        leading: CircleAvatar(backgroundColor: Colors.black38,
+        leading: const CircleAvatar(backgroundColor: Colors.black38,
           child: Icon(
             Icons.person_add_rounded,
           ),

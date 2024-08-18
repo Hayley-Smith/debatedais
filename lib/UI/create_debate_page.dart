@@ -4,10 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart'; // Import Provider
 
-import '../domain/argument_entity.dart';
-import '../domain/debate_entity.dart';
-import '../state/debate_provider.dart';
-
 class CreateDebatePage extends StatefulWidget {
   const CreateDebatePage({super.key});
 
@@ -87,9 +83,9 @@ class _CreateDebatePageState extends State<CreateDebatePage> {
                           // Navigate back to the previous screen or perform other actions
                           Navigator.of(context).pop();
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: const Text('Create Debate'),
+                        child: const Padding(
+                          padding: EdgeInsets.all(18.0),
+                          child: Text('Create Debate'),
                         ),
                       ),
                     ),

@@ -9,7 +9,7 @@ import '../UI/homepage/homepage_large.dart';
 import 'login.dart';
 
 class AuthenticationPage extends StatelessWidget {
-  const AuthenticationPage({Key? key}) : super(key: key);
+  const AuthenticationPage({super.key});
 
   @override
   Widget build(BuildContext context) {

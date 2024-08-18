@@ -24,7 +24,8 @@ import 'authentication/forgot_password_page.dart';
 import 'UI/create_debate_page.dart';
 import 'UI/debate_details_page.dart';
 
-import 'firebase/firebase_options.dart';
+
+import 'firebase_options.dart';
 import 'state/debate_provider.dart';
 
 import 'state/logical_fallacy_provider.dart';
@@ -71,7 +72,7 @@ class MyApp extends StatelessWidget {
         '/closed_debates': (context) => const ClosedDebatesPage(),
         '/logical_fallacies': (context) => const LogicalFallacyListPage(),
         //'/logical_fallacy': (context) => LogicalFallacyDetailPage(),
-        '/fallacy_intro': (context) => FallacyPagerWidget(),
+        '/fallacy_intro': (context) => const FallacyPagerWidget(),
         '/weigh_in': (context) => const WeighInPage(),
         '/forgot_password': (context) => const ForgotPasswordPage(),
         '/user_profile': (context) => const UserProfilePage(),

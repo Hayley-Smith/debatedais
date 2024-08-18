@@ -5,7 +5,7 @@ import '../domain/logical_fallacy_entity.dart';
 class LogicalFallacyDetailPage extends StatelessWidget {
   late final LogicalFallacy fallacy;
 
-  LogicalFallacyDetailPage({required this.fallacy});
+LogicalFallacyDetailPage({super.key, required this.fallacy});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class LogicalFallacyDetailPage extends StatelessWidget {
         child: Center(
           child: SizedBox(width: 600,
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   Card(

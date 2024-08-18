@@ -1,7 +1,9 @@
+// ignore_for_file: unused_field
+
 import 'package:flutter/cupertino.dart';
 
 import 'argument.dart';
-import 'citation.dart';
+
 import 'debate.dart';
 
 class DebateProvider extends ChangeNotifier {

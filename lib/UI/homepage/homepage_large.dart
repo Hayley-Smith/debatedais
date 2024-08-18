@@ -42,18 +42,18 @@ class HomepageLarge extends StatelessWidget {
             Expanded(
               flex: 3,
               child: Container(
-                // decoration:  BoxDecoration(
-                //   gradient: LinearGradient(
-                //     colors: [
-                //       Colors.white,
-                //       Colors.deepPurple.shade100,
-                //     ],
-                //     begin: const FractionalOffset(0.0, 0.0),
-                //     end: const FractionalOffset(0.0, 1.0),
-                //     stops: const [0.0, 1.0],
-                //     tileMode: TileMode.clamp,
-                //   ),
-                // ),
+                decoration:  BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.white,
+                      Colors.deepPurple.shade100,
+                    ],
+                    begin: const FractionalOffset(0.0, 0.0),
+                    end: const FractionalOffset(0.0, 1.0),
+                    stops: const [0.0, 1.0],
+                    tileMode: TileMode.clamp,
+                  ),
+                ),
                 child: const Row(
                   children: [
                     Expanded(
@@ -87,46 +87,43 @@ class HomepageLarge extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
+            const Expanded(
               flex: 3,
-              child: Container(
-                //color: Colors.deepPurple[100],
-                child: const Row(
-                  children: [
-                    Expanded(
-                      //flex: 7,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          HomePageSection(
-                            text:
-                                "Explore a diverse array of debates. From politics to science, ethics to "
-                                "entertainment, our platform hosts a rich tapestry"
-                                " of intellectual exchange. Stay informed and "
-                                "broaden your horizons as you read and absorb "
-                                "the diverse viewpoints shared by our "
-                                "community.",
-                            path: '/closed_debates',
-                            buttonText: 'Debate Collection',
-                          ),
-                        ],
-                      ),
+              child: Row(
+                children: [
+                  Expanded(
+                    //flex: 7,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        HomePageSection(
+                          text:
+                              "Explore a diverse array of debates. From politics to science, ethics to "
+                              "entertainment, our platform hosts a rich tapestry"
+                              " of intellectual exchange. Stay informed and "
+                              "broaden your horizons as you read and absorb "
+                              "the diverse viewpoints shared by our "
+                              "community.",
+                          path: '/closed_debates',
+                          buttonText: 'Debate Collection',
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          HomePageSection(
-                            text:
-                                "Strengthen your argumentative prowess by deepening your understanding of logical fallacies. Our platform offers a dedicated space for you to enhance your critical thinking skills. Familiarize yourself with common pitfalls in reasoning and learn how to identify, avoid, and counteract logical fallacies. Empower yourself to engage in debates with a sharper mind and a more discerning eye. Explore our curated resources and elevate your ability to construct sound, compelling arguments within the realm of rational discourse.",
-                            path: '/logical_fallacies',
-                            buttonText: 'Learn About Logical Fallacies',
-                          ),
-                        ],
-                      ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        HomePageSection(
+                          text:
+                              "Strengthen your argumentative prowess by deepening your understanding of logical fallacies. Our platform offers a dedicated space for you to enhance your critical thinking skills. Familiarize yourself with common pitfalls in reasoning and learn how to identify, avoid, and counteract logical fallacies. Empower yourself to engage in debates with a sharper mind and a more discerning eye. Explore our curated resources and elevate your ability to construct sound, compelling arguments within the realm of rational discourse.",
+                          path: '/logical_fallacies',
+                          buttonText: 'Learn About Logical Fallacies',
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],
