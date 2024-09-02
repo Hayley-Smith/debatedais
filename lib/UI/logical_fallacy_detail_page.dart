@@ -11,7 +11,7 @@ class LogicalFallacyDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
       appBar: AppBar(
         title: Text(fallacy.title),
       ),

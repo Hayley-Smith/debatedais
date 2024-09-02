@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
         '/open_debate_detail': (context) => const DebateDetailsPage(
               debateId: '1',
             ),
-        '/create_argument': (context) => const CreateArgumentPage(),
+        '/create_argument': (context) => CreateArgumentPage(),
         '/cite_source': (context) => const CiteSourcePage(),
         '/closed_debates': (context) => const ClosedDebatesPage(),
         '/logical_fallacies': (context) => const LogicalFallacyListPage(),
