@@ -17,7 +17,7 @@ class _LogicalFallacyListPageState extends State<LogicalFallacyListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
       appBar: AppBar(
         title: const Text('Logical Fallacies'),
       ),
