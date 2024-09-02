@@ -1,11 +1,7 @@
-
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-
 import '../UI/homepage/home_page.dart';
-import '../UI/homepage/homepage_large.dart';
 import 'login.dart';
 
 class AuthenticationPage extends StatelessWidget {
@@ -19,7 +15,7 @@ class AuthenticationPage extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               if (MediaQuery.of(context).size.width > 1000) {
-                return const HomepageLarge();
+                return const HomePage();
               } else {
                 return const HomePage();
               }

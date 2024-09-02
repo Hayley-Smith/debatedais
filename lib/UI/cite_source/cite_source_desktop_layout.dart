@@ -1,15 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-;
+
 import '../../domain/mla_source_entity.dart';
 import '../widgets/custom_drawer.dart';
-
 
 class CiteSourceDesktopLayout extends StatefulWidget {
   const CiteSourceDesktopLayout({super.key});
 
   @override
-  State<CiteSourceDesktopLayout> createState() => _CiteSourceDesktopLayoutState();
+  State<CiteSourceDesktopLayout> createState() =>
+      _CiteSourceDesktopLayoutState();
 }
 
 class _CiteSourceDesktopLayoutState extends State<CiteSourceDesktopLayout> {
@@ -30,8 +30,6 @@ class _CiteSourceDesktopLayoutState extends State<CiteSourceDesktopLayout> {
     // ignore: unused_local_variable
     const double thresholdWidth = 600;
 
-
-
     return Scaffold(
         drawer: CustomDrawer(),
         appBar: AppBar(
@@ -46,7 +44,8 @@ class _CiteSourceDesktopLayoutState extends State<CiteSourceDesktopLayout> {
                 ],
               ),
             ),
-            Expanded(flex: 4,
+            Expanded(
+              flex: 4,
               child: Column(
                 children: [
                   Padding(
@@ -56,15 +55,20 @@ class _CiteSourceDesktopLayoutState extends State<CiteSourceDesktopLayout> {
                       child: ListView(
                         children: [
                           _buildTextField('Author', authorController),
-                          _buildTextField('Title of Source', titleOfSourceController),
-                          _buildTextField('Title of Container', titleOfContainerController),
-                          _buildTextField('Other Contributors', otherContributorsController),
+                          _buildTextField(
+                              'Title of Source', titleOfSourceController),
+                          _buildTextField(
+                              'Title of Container', titleOfContainerController),
+                          _buildTextField('Other Contributors',
+                              otherContributorsController),
                           _buildTextField('Version', versionController),
                           _buildTextField('Number', numberController),
                           _buildTextField('Publisher', publisherController),
-                          _buildTextField('Publication Date', publicationDateController),
+                          _buildTextField(
+                              'Publication Date', publicationDateController),
                           _buildTextField('Location', locationController),
-                          _buildTextField('Date of Access', dateOfAccessController),
+                          _buildTextField(
+                              'Date of Access', dateOfAccessController),
                           const SizedBox(height: 20),
                           ElevatedButton(
                             onPressed: () {
@@ -89,11 +93,8 @@ class _CiteSourceDesktopLayoutState extends State<CiteSourceDesktopLayout> {
               ),
             ),
           ],
-        )
-    );
+        ));
   }
-
-
 
   Widget _buildTextField(String labelText, TextEditingController controller) {
     return TextFormField(
@@ -121,7 +122,8 @@ class _CiteSourceDesktopLayoutState extends State<CiteSourceDesktopLayout> {
       publisher: publisherController.text,
       publicationDate: publicationDateController.text,
       location: locationController.text,
-      dateOfAccess: dateOfAccessController.text, mlaSourceId: DateTime.now().toString(),
+      dateOfAccess: dateOfAccessController.text,
+      mlaSourceId: DateTime.now().toString(),
     );
 
     // Use the 'mlaSource' object as needed, for example, display it or save it.

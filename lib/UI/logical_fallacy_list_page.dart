@@ -1,9 +1,10 @@
 import 'package:debatedais/UI/logical_fallacy_detail_page.dart';
 import 'package:debatedais/UI/widgets/custom_drawer.dart';
-import 'package:debatedais/domain/logical_fallacy_entityge.dart';
 import 'package:debatedais/state/logical_fallacy_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../domain/logical_fallacy_entity.dart';
 
 class LogicalFallacyListPage extends StatefulWidget {
   const LogicalFallacyListPage({super.key});
