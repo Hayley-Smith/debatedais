@@ -6,5 +6,6 @@ class ArgumentProvider {
     timeStamp: DateTime.now(),
     argumentId: 'sampleargumentid',
     userId: 'sampleuserid1',
+    sources: [],
   );
 }
