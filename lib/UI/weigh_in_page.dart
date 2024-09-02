@@ -1,3 +1,4 @@
+import 'package:debatedais/UI/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 class WeighInPage extends StatefulWidget {
@@ -10,6 +11,11 @@ class WeighInPage extends StatefulWidget {
 class _WeighInPageState extends State<WeighInPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text("weigh in Page"),),);
+    return const Scaffold(
+      drawer: CustomDrawer(),
+      body: Center(
+        child: Text("weigh in Page"),
+      ),
+    );
   }
 }

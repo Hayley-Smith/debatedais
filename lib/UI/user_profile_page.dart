@@ -1,3 +1,4 @@
+import 'package:debatedais/UI/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 class UserProfilePage extends StatefulWidget {
@@ -10,6 +11,11 @@ class UserProfilePage extends StatefulWidget {
 class _UserProfilePageState extends State<UserProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text("User Profile Page"),),);
+    return const Scaffold(
+      drawer: CustomDrawer(),
+      body: Center(
+        child: Text("User Profile Page"),
+      ),
+    );
   }
 }

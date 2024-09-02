@@ -4,8 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/mla_source_entity.dart';
-
-
+import '../widgets/custom_drawer.dart';
 
 class CiteSourcePage extends StatefulWidget {
   const CiteSourcePage({super.key});
@@ -31,47 +30,46 @@ class _CiteSourcePageState extends State<CiteSourcePage> {
   Widget build(BuildContext context) {
     const double thresholdWidth = 600;
 
-
-
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('MLA Citation Form'),
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: ListView(
-              children: [
-                _buildTextField('Author', authorController),
-                _buildTextField('Title of Source', titleOfSourceController),
-                _buildTextField('Title of Container', titleOfContainerController),
-                _buildTextField('Other Contributors', otherContributorsController),
-                _buildTextField('Version', versionController),
-                _buildTextField('Number', numberController),
-                _buildTextField('Publisher', publisherController),
-                _buildTextField('Publication Date', publicationDateController),
-                _buildTextField('Location', locationController),
-                _buildTextField('Date of Access', dateOfAccessController),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      _createMLASource();
-                    }
-                  },
-                  child: const Text('Create Citation'),
-                ),
-              ],
+        drawer: CustomDrawer(),
+        appBar: AppBar(
+          title: const Text('MLA Citation Form'),
+        ),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              key: _formKey,
+              child: ListView(
+                children: [
+                  _buildTextField('Author', authorController),
+                  _buildTextField('Title of Source', titleOfSourceController),
+                  _buildTextField(
+                      'Title of Container', titleOfContainerController),
+                  _buildTextField(
+                      'Other Contributors', otherContributorsController),
+                  _buildTextField('Version', versionController),
+                  _buildTextField('Number', numberController),
+                  _buildTextField('Publisher', publisherController),
+                  _buildTextField(
+                      'Publication Date', publicationDateController),
+                  _buildTextField('Location', locationController),
+                  _buildTextField('Date of Access', dateOfAccessController),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        _createMLASource();
+                      }
+                    },
+                    child: const Text('Create Citation'),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      )
-    );
+        ));
   }
-
-
 
   Widget _buildTextField(String labelText, TextEditingController controller) {
     return TextFormField(
@@ -99,7 +97,8 @@ class _CiteSourcePageState extends State<CiteSourcePage> {
       publisher: publisherController.text,
       publicationDate: publicationDateController.text,
       location: locationController.text,
-      dateOfAccess: dateOfAccessController.text, mlaSourceId: DateTime.now().toString(),
+      dateOfAccess: dateOfAccessController.text,
+      mlaSourceId: DateTime.now().toString(),
     );
 
     // Use the 'mlaSource' object as needed, for example, display it or save it.

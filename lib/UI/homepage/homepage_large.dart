@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/custom_drawer.dart';
 import 'homepage_section.dart';
 
 class HomepageLarge extends StatelessWidget {
@@ -9,7 +10,7 @@ class HomepageLarge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: Colors.deepPurple[100],
-
+      drawer: const CustomDrawer(),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -42,7 +43,7 @@ class HomepageLarge extends StatelessWidget {
             Expanded(
               flex: 3,
               child: Container(
-                decoration:  BoxDecoration(
+                decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
                       Colors.white,

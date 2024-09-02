@@ -1,5 +1,6 @@
-import 'package:debatedais/domain/logical_fallacy_entity.dart';
 import 'package:debatedais/UI/logical_fallacy_detail_page.dart';
+import 'package:debatedais/UI/widgets/custom_drawer.dart';
+import 'package:debatedais/domain/logical_fallacy_entityge.dart';
 import 'package:debatedais/state/logical_fallacy_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,7 @@ class _LogicalFallacyListPageState extends State<LogicalFallacyListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: AppBar(
         title: const Text('Logical Fallacies'),
       ),
@@ -35,7 +37,8 @@ class _LogicalFallacyListPageState extends State<LogicalFallacyListPage> {
               ),
             ),
             child: Center(
-              child: SizedBox(width: 600,
+              child: SizedBox(
+                width: 600,
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: ListView.builder(

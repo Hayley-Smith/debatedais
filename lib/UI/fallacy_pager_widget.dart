@@ -1,3 +1,4 @@
+import 'package:debatedais/UI/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 class FallacyPagerWidget extends StatefulWidget {
@@ -52,6 +53,7 @@ class _FallacyPagerWidgetState extends State<FallacyPagerWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: AppBar(
         title: const Text('Learn Logical Fallacies'),
       ),

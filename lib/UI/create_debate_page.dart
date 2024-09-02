@@ -1,3 +1,4 @@
+import 'package:debatedais/UI/widgets/custom_drawer.dart';
 import 'package:debatedais/domain/thesis_statement_entity.dart';
 import 'package:debatedais/state/thesis_statement_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -35,6 +36,7 @@ class _CreateDebatePageState extends State<CreateDebatePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const CustomDrawer(),
       appBar: AppBar(
         title: const Text('Create Debate'),
       ),

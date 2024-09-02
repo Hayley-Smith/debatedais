@@ -1,11 +1,10 @@
-
 import 'package:debatedais/UI/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'debate_details_page.dart';
 import '../domain/debate_entity.dart';
 import '../state/debate_provider.dart';
+import 'debate_details_page.dart';
 
 class ClosedDebatesPage extends StatelessWidget {
   final double thresholdWidth = 800;

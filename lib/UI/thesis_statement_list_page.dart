@@ -1,3 +1,4 @@
+import 'package:debatedais/UI/widgets/custom_drawer.dart';
 import 'package:debatedais/domain/thesis_statement_entity.dart';
 import 'package:debatedais/state/thesis_statement_provider.dart';
 import 'package:flutter/material.dart';
@@ -7,18 +8,20 @@ class ThesisStatementListPage extends StatefulWidget {
   const ThesisStatementListPage({super.key});
 
   @override
-  State<ThesisStatementListPage> createState() => _ThesisStatementListPageState();
+  State<ThesisStatementListPage> createState() =>
+      _ThesisStatementListPageState();
 }
 
 class _ThesisStatementListPageState extends State<ThesisStatementListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: AppBar(
         title: const Text("Join a Debate"),
       ),
       body: Container(
-        decoration:  BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
               Colors.white,
@@ -31,7 +34,8 @@ class _ThesisStatementListPageState extends State<ThesisStatementListPage> {
           ),
         ),
         child: Center(
-          child: SizedBox(width: 600,
+          child: SizedBox(
+            width: 600,
             child: Consumer<ThesisStatementProvider>(
               builder: (context, provider, child) {
                 List<ThesisStatement> list = provider.openDebates;
@@ -43,10 +47,14 @@ class _ThesisStatementListPageState extends State<ThesisStatementListPage> {
                       return InkWell(
                         onTap: () {
                           //set the selectedOpenDebate in openDebateProvider
-                          Provider.of<ThesisStatementProvider>(context, listen: false)
+                          Provider.of<ThesisStatementProvider>(context,
+                                  listen: false)
                               .setSelectedOpenDebate(list[index]);
                           //nav to join debate page
-                          Navigator.pushNamed(context, "/join_debate",);
+                          Navigator.pushNamed(
+                            context,
+                            "/join_debate",
+                          );
                         },
                         child: Card(
                           elevation: 10,

@@ -1,3 +1,4 @@
+import 'package:debatedais/UI/widgets/custom_drawer.dart';
 import 'package:debatedais/state/debate_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,7 @@ class _DebateDetailsPageState extends State<DebateDetailsPage> {
         widget.debateId); // Implement this method in your provider
 
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: AppBar(),
       body: LayoutBuilder(builder: (context, constraints) {
         double currentWidth = constraints.maxWidth;
@@ -53,7 +55,7 @@ class DebateDetailsDesktopLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration:  BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
               Colors.white,
@@ -77,7 +79,8 @@ class DebateDetailsDesktopLayout extends StatelessWidget {
                   ],
                 ),
               ),
-              Expanded(flex: 4,
+              Expanded(
+                flex: 4,
                 child: Column(
                   children: [
                     SizedBox(
@@ -148,7 +151,7 @@ class DebateDetailsMobileLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:  BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
             Colors.white,
@@ -235,7 +238,8 @@ class ArgumentAgainstTile extends StatelessWidget {
             "Sources",
           ),
         ),
-        trailing: const CircleAvatar(backgroundColor: Colors.black38,
+        trailing: const CircleAvatar(
+          backgroundColor: Colors.black38,
           child: Icon(
             Icons.person_remove_rounded,
           ),
@@ -277,7 +281,8 @@ class ArgumentForTile extends StatelessWidget {
             "Sources",
           ),
         ),
-        leading: const CircleAvatar(backgroundColor: Colors.black38,
+        leading: const CircleAvatar(
+          backgroundColor: Colors.black38,
           child: Icon(
             Icons.person_add_rounded,
           ),

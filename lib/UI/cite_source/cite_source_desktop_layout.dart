@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+;
 import '../../domain/mla_source_entity.dart';
+import '../widgets/custom_drawer.dart';
 
 
 class CiteSourceDesktopLayout extends StatefulWidget {
@@ -31,6 +33,7 @@ class _CiteSourceDesktopLayoutState extends State<CiteSourceDesktopLayout> {
 
 
     return Scaffold(
+        drawer: CustomDrawer(),
         appBar: AppBar(
           title: const Text('MLA Citation Form'),
         ),
