@@ -8,7 +8,7 @@ import '../domain/logical_fallacy_entity.dart';
 
 class LogicalFallacyListPage extends StatefulWidget {
   const LogicalFallacyListPage({super.key});
-
+  // Test
   @override
   State<LogicalFallacyListPage> createState() => _LogicalFallacyListPageState();
 }
